@@ -1,12 +1,16 @@
-import { useState, useEffect, act } from 'react'
+import { useState, useEffect } from 'react'
+import ReactModal from 'react-modal';
 
+ReactModal.setAppElement('#root');
 
 function App() {
   const [timer, setTimer] = useState(localStorage.getItem("pomodoro"));
   const [seconds, setSeconds] = useState(timer * 60);
   const [mode, setMode] = useState("pomodoro"); //pomo, short, long
   const [active, setActive] = useState(false);
-  
+  const [pomodorosmax, setPomodorosmax] = useState(4)
+  const [pomodoros, setPomodoros] = useState(0)
+
 
   useEffect(() => {
     let storage = localStorage.getItem("enteredBefore");
@@ -15,7 +19,10 @@ function App() {
       localStorage.setItem("shortBreak", 5);
       localStorage.setItem("longBreak", 15);
       localStorage.setItem("enteredBefore", true);
+      localStorage.setItem("pomodoros", 4);
     }
+
+    setPomodoros(0);
   }, []);
 
   const formatTimeLeft = (seconds) => {
@@ -39,8 +46,23 @@ function App() {
       setSeconds(prev => prev - 1);
     }, 1000);
 
-      return () => clearInterval(interval);
-    
+    if (timer == localStorage.getItem("pomodoro") && pomodoros < pomodorosmax && seconds <= 0){
+      setMode("shortBreak");
+      setPomodoros(prev => prev + 1);
+    }
+    if (timer == localStorage.getItem("pomodoro") && pomodoros >= pomodorosmax && seconds <= 0){
+      setMode("longBreak");
+      setPomodoros(1);
+    }
+    if (timer == localStorage.getItem("shortBreak") && seconds <= 0){
+      setMode("pomodoro");
+    }
+    if (timer == localStorage.getItem("longBreak") && seconds <= 0){
+      setMode("pomodoro");
+      setPomodoros(0)
+    }
+
+    return () => clearInterval(interval);
     
   }, [active, seconds]);
 
