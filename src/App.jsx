@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import ReactModal from 'react-modal';
-
-ReactModal.setAppElement('#root');
+import ConfigMenu from './components/ConfigMenu';
 
 function App() {
   const [timer, setTimer] = useState(localStorage.getItem("pomodoro"));
@@ -10,6 +8,7 @@ function App() {
   const [active, setActive] = useState(false);
   const [pomodorosmax, setPomodorosmax] = useState(4)
   const [pomodoros, setPomodoros] = useState(0)
+  const [showConfig, setShowConfig] = useState(true)
 
 
   useEffect(() => {
@@ -22,6 +21,7 @@ function App() {
       localStorage.setItem("pomodoros", 4);
     }
 
+    setShowConfig(false);
     setPomodoros(0);
   }, []);
 
@@ -72,11 +72,16 @@ function App() {
 
   return (
     <>
+
+      <ConfigMenu isOpen={showConfig} />
+
       <button onClick={() => setMode("pomodoro")}>Focus</button>
       <button onClick={() => setMode("shortBreak")}>Short Break</button>
       <button onClick={() => setMode("longBreak")}>Long Break</button>
       <h1>{formatTimeLeft(seconds)}</h1>
       <button onClick={HandleStart}>Start</button>
+
+      <button onClick={() => {setShowConfig(true)}}>Config</button>
     </>
   )
 }
