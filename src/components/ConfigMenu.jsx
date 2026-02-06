@@ -1,3 +1,4 @@
+import "../index.css"
 import { useState } from 'react';
 import ReactModal from 'react-modal';
 
@@ -38,7 +39,7 @@ function ConfigMenu({isOpen}){
 
         <ReactModal isOpen={isOpen}>
             <form onSubmit={HandleSubmit}>
-                <h1>Configuration Panel</h1>
+                <h1>Configuration</h1>
 
                 <span>Timer</span>
                 <input onChange={ChangePomodoro} defaultValue={pomodoro} min={1} type='number'/>
