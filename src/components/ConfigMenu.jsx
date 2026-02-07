@@ -1,6 +1,9 @@
 import "../index.css"
 import { useState } from 'react';
 import ReactModal from 'react-modal';
+import ConfigTitle from "./ConfigTitle";
+import ConfigButton from "./ConfigButton";
+import ConfigInput from "./ConfigInput";
 
 ReactModal.setAppElement('#root');
 
@@ -37,23 +40,23 @@ function ConfigMenu({isOpen}){
 
     return(
 
-        <ReactModal isOpen={isOpen}>
-            <form onSubmit={HandleSubmit}>
-                <h1>Configuration</h1>
+        <ReactModal style={{overlay: {backgroundColor: 'rgba(0, 0, 0, 0.5)',}  }} className=" absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[75vw] h-[75vh] rounded-[16px] bg-[#343B41]" isOpen={isOpen}>
+        <div className="flex flex-col p-[16px] w-full h-full text-center justify-center align-middle flex-grow">    
+            <form className="flex flex-col" onSubmit={HandleSubmit}>
+                
+                    <ConfigTitle text={"Configuration"} />
 
-                <span>Timer</span>
-                <input onChange={ChangePomodoro} defaultValue={pomodoro} min={1} type='number'/>
+                    <ConfigInput text={"Timer"} onChange={ChangePomodoro} value={pomodoro} />
+                    <ConfigInput text={"Short Break"} onChange={ChangeShort} value={short} />
+                    <ConfigInput text={"Long Break"} onChange={ChangeLong} value={long} />
 
-                <span>Short Break</span>
-                <input onChange={ChangeShort} defaultValue={short} min={1} type='number'/>
+                    <ConfigButton text={"Apply"} />
+                    <ConfigButton onClick={HandleDefault} text={"Default"} />
+        
 
-                <span>Long Break</span>
-                <input onChange={ChangeLong} defaultValue={long} min={1} type='number'/>
 
-                <button onClick={HandleDefault}>Default</button>
-                <button type='submit'>Apply</button>
             </form>
-
+        </div>
 
         </ReactModal>
     )
