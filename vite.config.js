@@ -9,6 +9,9 @@ export default defineConfig({
   fs: {
     cachedChecks: false
   }
+},
+resolve: {
+  extensions: ['.js', '.jsx']
 }
 })
 
