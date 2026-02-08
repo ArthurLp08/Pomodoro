@@ -1,5 +1,5 @@
 import './index.css';
-import Timer from './components/timer.jsx';
+import Timer from './components/time';
 
 function App() {
 
