@@ -1,16 +1,28 @@
-# React + Vite
+# ⏱️Pomodoro Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive Pomodoro Timer built with React, Vite, and Tailwind CSS to help you stay focused and productive using the Pomodoro Technique.
 
-Currently, two official plugins are available:
+# ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⏱️ 25-minute focus sessions with breaks
+- 🎨 Clean, minimal UI styled with Tailwind CSS
+- ⚡ Fast development and build times thanks to Vite
+- 📱 Responsive design (works on desktop & mobile)
 
-## React Compiler
+# 📦 Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `React.js`
+- `Vite`
+- `Tailwindcss`
 
-## Expanding the ESLint configuration
+# 🚦 Testing the project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To run this project locally:
+
+1. Clone this repo to your machine.
+2. Run npm install or yarn in the project directory to install the dependencies.
+3. Run npm run dev or yarn start to get the project started.
+4. Open the addres that's shown in your terminal in your web browser to see the app.
+
+Or use the [Live Demo](https://pomottimerr.vercel.app/)
+
