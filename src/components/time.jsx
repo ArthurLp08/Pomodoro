@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-import ConfigMenu from './configMenu';
+import ConfigMenu from './ConfigMenu';
 import ModeButton from './ModeButton';
 import TimerButton from './TimerButton';
 import TimerText from './TimerText';
